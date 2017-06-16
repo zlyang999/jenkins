@@ -7,6 +7,7 @@ TOMCAT_FILE=`ls ./2_tomcat |egrep ".tar.gz"`
 JK_FILE=`ls ./3_jenkins |egrep ".war"`
 GIT_FILE=`ls ./4_git |egrep ".tar.gz"`
 MVN_FILE=`ls ./5_maven |egrep ".tar.gz"`
+ANT_FILE=`ls ./6_ant |egrep ".tar.gz"`
 if [[ -z ${JDK_FILE} ]];then
 	echo -e "\033[31m Error: Please download \033[0m \033[33mJDK \033[0m \033[31mand put it in the \"1_jdk\" dirctory! \033[0m"
 elif [[ -z ${TOMCAT_FILE} ]];then
@@ -18,6 +19,8 @@ elif [[ -z ${GIT_FILE} ]];then
 	echo -e "\033[31m Error: Please download \033[0m \033[33mGit \033[0m \033[31mand put it in the \"4_git\" dirctory! \033[0m"
 elif [[ -z ${MVN_FILE} ]];then
 	echo -e "\033[31m Error: Please download \033[0m \033[33mMaven \033[0m \033[31mand put it in the \"5_maven\" dirctory! \033[0m"
+elif [[ -z ${ANT_FILE} ]];then
+	echo -e "\033[31m Error: Please download \033[0m \033[33mAnt \033[0m \033[31mand put it in the \"6_ant\" dirctory! \033[0m"
 else
 	#### Install JDK
 	echo "# Install ${JDK_FILE}"
@@ -58,5 +61,13 @@ else
         echo -e "\033[32m Maven install Success !\033[0m"
     else
         echo -e "\033[31m Maven install Failed ! \033[0m"
+    fi
+    #### Install Ant
+    echo "# Install ${ANT_FILE}"
+    cd ./6_ant ;/bin/sh auto_install_ant.sh ${ANT_FILE}
+    if [ $? == 0 ];then
+        echo -e "\033[32m Ant install Success !\033[0m"
+    else
+        echo -e "\033[31m Ant install Failed ! \033[0m"
     fi
 fi
