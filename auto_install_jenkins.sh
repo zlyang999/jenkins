@@ -21,7 +21,7 @@ elif [[ -z ${MVN_FILE} ]];then
 else
 	#### Install JDK
 	echo "# Install ${JDK_FILE}"
-	#cd ./1_jdk ;/bin/sh auto_install_jdk.sh ${JDK_FILE}
+	cd ./1_jdk ;/bin/sh auto_install_jdk.sh ${JDK_FILE}
 	if [ $? == 0 ];then
 		echo -e "\033[32m JDK install Success !\033[0m"
 	else
@@ -29,7 +29,7 @@ else
 	fi
 	#### Install Tomcat 
 	echo "# Install ${TOMCAT_FILE}"
-    #cd ./2_tomcat ;/bin/sh auto_install_tomcat.sh ${TOMCAT_FILE}
+    cd ./2_tomcat ;/bin/sh auto_install_tomcat.sh ${TOMCAT_FILE}
     if [ $? == 0 ];then
         echo -e "\033[32m Tomcat install Success !\033[0m"
     else
@@ -37,7 +37,7 @@ else
     fi
 	#### Insstall Jenkins
 	echo "# Install ${JK_FILE}"
-    #cd ./3_jenkins ;/bin/sh auto_install_jenkins.sh ${JK_FILE}
+    cd ./3_jenkins ;/bin/sh auto_install_jenkins.sh ${JK_FILE}
     if [ $? == 0 ];then
         echo -e "\033[32m Jenkins install Success !\033[0m"
     else
@@ -45,7 +45,7 @@ else
     fi
 	#### Install git
 	echo "#Install ${GIT_FILE}"
-    #cd ./4_git ;/bin/sh auto_install_git.sh ${GIT_FILE}
+    cd ./4_git ;/bin/sh auto_install_git.sh ${GIT_FILE}
     if [ $? == 0 ];then
         echo -e "\033[32m Git install Success !\033[0m"
     else
@@ -53,7 +53,7 @@ else
     fi
     #### Install Maven
 	echo "# Install ${MVN_FILE}"
-    #cd ./5_maven ;/bin/sh auto_install_maven.sh ${MVN_FILE}
+    cd ./5_maven ;/bin/sh auto_install_maven.sh ${MVN_FILE}
     if [ $? == 0 ];then
         echo -e "\033[32m Maven install Success !\033[0m"
     else
